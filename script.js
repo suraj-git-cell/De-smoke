@@ -113,8 +113,9 @@ function detectPattern() {
 // ===== SERVICE WORKER =====
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .then(() => console.log("De-Smoke SW Registered"))
-      .catch(err => console.log(err));
+    navigator.serviceWorker
+      .register("pwabuilder-sw.js")
+      .then(reg => console.log("PWABuilder SW Registered:", reg.scope))
+      .catch(err => console.log("SW Error:", err));
   });
 }
